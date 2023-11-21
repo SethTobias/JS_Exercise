@@ -425,7 +425,11 @@ console.log(device4);
 //         this.transmission,
 //         this.drivetrains
 function vroomVroom(brand, model, year, transmission, drivetrains) {
-  this.brand, this.model, this.year, this.transmission, this.drivetrains;
+  (this.brand = brand),
+    (this.model = model),
+    (this.year = year),
+    (this.transmission = transmission),
+    (this.drivetrains = drivetrains);
 }
 
 let vroom1 = new vroomVroom("Toyota", "Supera", 2009, "Manuel", "BWD");
@@ -433,11 +437,136 @@ let vroom2 = new vroomVroom("MiniCopper", "Hub", 2012, "Manuel", "FWD");
 let vroom3 = new vroomVroom("Tesla", "CyberTruck", 2023, "Automatic", "AWD");
 let vroom4 = new vroomVroom("Bugatti", "Carron", 2022, "Manuel", "AWD");
 
-// 26. Create 4 objects of your own and print to the console all of the created objects.
+console.log(vroom1);
+console.log(vroom2);
+console.log(vroom3);
+console.log(vroom4);
 // 27. After, push the 4 objects to an array called 'informationAboutCars'.
+informationAboutCars = [vroom1, vroom2, vroom3, vroom4];
 // 28. Create a function that can be used 'globally', the function should return a sentence containing all the properties used inside the object, eg 'The car brand Ford has a model of a Figo that was produced in 2019. It is a manual and is a front wheel drive'
-// 29. Make sure to write the above sentences for each car inside the corresponding h4 elements
+var globalFunction = function () {
+  let v = 0;
+  while (v < informationAboutCars.length) {
+    document.getElementsByTagName("h4")[
+      v
+    ].innerText = `The car brand ${informationAboutCars[v].brand} has a model of a ${informationAboutCars[v].model} that was produced in ${informationAboutCars[v].year}. It is a ${informationAboutCars[v].transmission} and is a ${informationAboutCars[v].drivetrains} wheel drive`;
+    v++;
+  }
+};
+// 29. Make sure to write the above sentences for each car inside the corresponding h4 elements {
+globalFunction();
 // 30. Use the array in question10 that you created and create a conditional statement that check if 'BMW' appears in the array. The console should return 'This item does appear in the array' or 'The item does not appear in the array'
+coolCars = ["BMW", "Bugatti", "Ferrari", "McLaren", "Mercedes"];
+if (coolCars.lastIndexOf("BMW", 0) !== -1) {
+  console.log("This item does appear in the array");
+} else {
+  console.log("The item does not appear in the array");
+}
+let inArray =
+  coolCars.lastIndexOf("BMW", 0) !== -1
+    ? console.log("In array")
+    : console.log("Not in array");
 // 31. Declare an array and give it a value of [5, 18, 14, 16, 2, 1].
+
 //     Create a program that returns the middle value of the current array, if array length is even return 2 numbers, if the array lengthis odd return 1 number
+let randomNumbers = [5, 18, 14, 16, 2, 1];
+function middleValue() {
+  if (randomNumbers.length % 2 == 0) {
+    console.log(randomNumbers.splice(randomNumbers.length / 2 - 1, 2));
+  } else {
+    console.log(randomNumbers.splice(randomNumbers.length / 2, 1));
+  }
+}
+middleValue();
 // 32. Go back to Question 16 and use the conditional statement you created. The age has to be requested from the user and the message ust be written to the html page in the corresponding element
+document.getElementsByTagName("div")[3].innerHTML =
+  "<input type='text'> <label for='Something'>Had to be included</label><button class='userAge'>Confirm Age</button><br> <p id='Ques32'></p>";
+let userAge = document.getElementsByTagName("input")[4].value;
+let confirm = function () {
+  let userAge = document.getElementsByTagName("input")[4].value;
+  correctAge = userAge;
+  document.getElementById("Ques32").innerText = correctAge;
+};
+let confirmAge = document.getElementsByTagName("button")[2];
+confirmAge.addEventListener("click", () => confirm());
+
+//1 Create a function that will calculate the square root of any number
+function root(a) {
+  answer = Math.sqrt(a);
+  console.log(answer);
+}
+root(9);
+//2 create a function that will calculate the power of another number
+function power(a, b) {
+  answer = Math.pow(a, b);
+  console.log(answer);
+}
+power(3, 3);
+//3 create a function that accepts an input and only rounds a number down
+function roundDown(a) {
+  answer = Math.floor(a);
+  console.log(answer);
+}
+roundDown(103.598);
+//4 create a function that accepts a decimal value  and rounds the value up
+function roundUp(a) {
+  answer = Math.ceil(a);
+  console.log(answer);
+}
+roundUp(102.132);
+//5 create a function that will take in 2 numbers and output the largest number between the 2
+function greaterThan(a, b) {
+  answer = Math.max(a, b);
+  console.log(answer);
+}
+greaterThan(45.47, 45.475);
+//6 create a function that will take in 2 numbers and output the smallest number between the 2
+function lessThan(a, b) {
+  answer = Math.min(a, b);
+  console.log(answer);
+}
+lessThan(45.472, 45.475);
+//7 create a function that will generate a rnadom whole number
+function randomNumber() {
+  randAnswer = Math.random();
+  answer = Math.round(randAnswer);
+  console.log(answer);
+}
+randomNumber();
+//8 Create a function that will calculate the area of a circle when a radius is the entered parameter
+function areaCircle(radius) {
+  answer = Math.PI * Math.pow(radius, 2);
+  console.log(answer);
+}
+areaCircle(10);
+//9 create a function that accepts a decimal value  and rounds the value
+function round(value) {
+  answer = Math.round(value);
+  console.log(answer);
+}
+round(23.598);
+
+//consider the following string ' Life Choices '
+// 1. change the string so that all the values are all capital letters and store it in a variable
+let string = "Life Choices";
+let upper = string.toUpperCase();
+console.log(upper);
+// 2. change the created variable and use the string method to change the string to small letters.
+let lower = string.toLowerCase();
+console.log(lower);
+// 3. Use a method to remove all white space from the string.
+let noSpace = string.replace(" ", "");
+console.log(noSpace);
+// 4. Use a method that will return the letter at a specific index
+let letter = string.charAt(5);
+console.log(letter);
+// 5. Use a method to return the word 'Choices' from the string
+
+let choice = string.slice(5, 11);
+console.log(choice);
+// 6. log the length of the array
+let length = string.length;
+console.log(length);
+// 7. BONUS...reverse the current string....
+let reverse = string.split("").reverse().join("");
+console.log(reverse);
